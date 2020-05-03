@@ -31,27 +31,6 @@ public class Solution {
                 }
             }
         }
-       
-
-
-        /*for(int i=0;i<arr.length;i++){
-            number=arr[i];
-            condition=false;
-            for(int j=i;j<arr.length;j++){
-                if(number>arr[j]){
-                    number=arr[j];
-                    fakeindex=j;
-                    condition=true;
-                }
-            }
-            if(condition){
-                temp=arr[i];
-                arr[i]=arr[fakeindex];
-                arr[fakeindex]=temp;
-                ans++;
-                //System.out.println(temp+" "+i);
-            }
-        }*/
         return ans;
     }
 
