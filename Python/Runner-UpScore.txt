@@ -1,0 +1,11 @@
+if __name__ == '__main__':
+    n = int(raw_input())
+    arr = map(int, raw_input().split())
+    arr.sort()
+    length = len(arr)
+    least = arr[length-1]
+    for i in range(length):
+        if arr[i] == least:
+            print(arr[i-1])
+            break
+

@@ -1,0 +1,15 @@
+L = []
+lowest=100
+for _ in range(int(raw_input())):
+    name = raw_input()
+    score = float(raw_input())
+    L1 = [score, name]
+    L.append(L1)
+L.sort()
+num=100
+for i in range(len(L)):
+    if num < L[i][0]:
+        break
+    elif L[i][0] > L[0][0]:
+        print(L[i][1])
+        num = L[i][0]

@@ -1,0 +1,9 @@
+def split_and_join(line):
+    result=""
+    for i in range(len(line)):
+        a = line[i]
+        if a == ' ':
+            result=result+'-'
+        else:
+            result=result+a
+    return result

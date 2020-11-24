@@ -1,0 +1,4 @@
+def print_full_name(a, b):
+    c="Hello "+a+" "+b+'! You just delved into python.'
+    print(c)
+

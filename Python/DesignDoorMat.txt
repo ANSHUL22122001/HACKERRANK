@@ -1,0 +1,35 @@
+arr = list(map(int,input().split()))
+rows = arr[0]
+columns = arr[1]
+
+i=0
+cond = True
+while(True):
+    string=""
+    if i<rows//2 and cond:
+        for j in range(columns//2 - i*3 -1):
+            string=string+'-'
+        for j in range(2*i +1):
+            string=string+'.|.'
+        for j in range(columns//2 - i*3 -1):
+            string=string+'-'
+        i=i+1
+    elif(i==rows//2 and cond):
+        for j in range(columns//2 - 3):
+            string=string+'-'
+        string=string+'WELCOME'
+        for j in range(columns//2 - 3):
+            string=string+'-'
+        i=i-1
+        cond=False
+    else:
+        for j in range(columns//2 - i*3 -1):
+            string=string+'-'
+        for j in range(2*i +1):
+            string=string+'.|.'
+        for j in range(columns//2 - i*3 -1):
+            string=string+'-'
+        i=i-1  
+    print(string)
+    if i==-1:
+        break
