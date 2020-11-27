@@ -1,0 +1,46 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the palindromeIndex function below.
+def pali(s,i):
+    string=""
+    for j in range(len(s)):
+        if(j!=i):
+            string=string+s[j]
+    for i in range(len(string)):
+        if string[i] != s[len(string)-i-1]:
+            return False
+    return True
+    
+def palindromeIndex(s):
+    ans=int(-1)
+    for i in range(len(s)/2):
+        if s[i] != s[len(s)-i-1]:
+            string=""
+            for j in range(len(s)):
+                if(j!=i):
+                    string=string+s[j]
+            for j in range(len(string)/2):
+                if string[j] != string[len(string)-j-1]:
+                    return len(s)-i-1       
+            return i
+    return -1
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(raw_input())
+
+    for q_itr in xrange(q):
+        s = raw_input()
+
+        result = palindromeIndex(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()

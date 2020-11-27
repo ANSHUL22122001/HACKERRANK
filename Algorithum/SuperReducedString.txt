@@ -1,0 +1,36 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the superReducedString function below.
+def superReducedString(s):
+    while(True):
+        cond=True
+        for i in "abcdefghijklmnopqrstuvwxyz":
+            string=""+i+i;
+            while(True):
+                if string in s:
+                    s=s.replace(string,'')
+                    cond=False
+                else:
+                    break;
+        if(cond):
+            break
+    if(len(s)==0):
+        return "Empty String"
+    return s
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = raw_input()
+
+    result = superReducedString(s)
+
+    fptr.write(result + '\n')
+
+    fptr.close()

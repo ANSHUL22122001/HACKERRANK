@@ -1,0 +1,47 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the cavityMap function below.
+def cavityMap(grid):
+    if len(grid)==1:
+        return grid
+    L = []
+    string = grid[0]
+    L.append(string)
+    for i in range(1, len(grid) - 1):
+        string = grid[i][0]
+        for j in range(1, len(grid) - 1):
+            if grid[i + 1][j] != 'X' and grid[i - 1][j] != 'X' and grid[i][j + 1] != 'X' and grid[i][j - 1] != 'X'and (int(grid[i + 1][j]) < int(grid[i][j]) and int(grid[i - 1][j]) < int(grid[i][j]) and int(
+                    grid[i][j + 1]) < int(grid[i][j]) and int(grid[i][j - 1]) < int(grid[i][j])):
+                    string = string + 'X'
+            else:
+                string = string + grid[i][j]
+        string = string + grid[i][len(grid) - 1]
+        L.append(string)
+    string = grid[len(grid) - 1]
+    L.append(string)
+    print(L)
+    return L
+        
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    n = int(raw_input())
+
+    grid = []
+
+    for _ in xrange(n):
+        grid_item = raw_input()
+        grid.append(grid_item)
+
+    result = cavityMap(grid)
+
+    fptr.write('\n'.join(result))
+    fptr.write('\n')
+
+    fptr.close()

@@ -1,0 +1,29 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the stringConstruction function below.
+def stringConstruction(s):
+    ans=int(0)
+    for i in 'abcdefghijklmnopqrstuvwxyz':
+        if i in s:
+            ans=ans+1
+    return ans
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    q = int(raw_input())
+
+    for q_itr in xrange(q):
+        s = raw_input()
+
+        result = stringConstruction(s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
