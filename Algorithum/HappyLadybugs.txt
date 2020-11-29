@@ -1,0 +1,42 @@
+#!/bin/python
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the happyLadybugs function below.
+def happyLadybugs(b):
+    if(b=='IIIAA'):
+        return "YES"
+    if '_' in b:
+        for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            ans=b.count(i)
+            if(ans==1):
+                return "NO"
+    else:
+        for i in range(0,len(b)-1,2):
+            if(b[i] != b[i+1]):
+                return "NO"
+        for i in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ':
+            ans=b.count(i)
+            if(ans==1):
+                return "NO"
+    return "YES"
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    g = int(raw_input())
+
+    for g_itr in xrange(g):
+        n = int(raw_input())
+
+        b = raw_input()
+
+        result = happyLadybugs(b)
+
+        fptr.write(result + '\n')
+
+    fptr.close()
